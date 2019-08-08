@@ -6,6 +6,19 @@
  * Made By MaterializeCSS.com
  */
 
+
+ .navbartext {
+   color: white
+ }
+
+ .navbarcolor {
+   background-color: black;
+ }
+
+ .navbarlogo {
+   float: left;
+ }
+
  nav ul a,
  nav .brand-logo {
    color: #444;

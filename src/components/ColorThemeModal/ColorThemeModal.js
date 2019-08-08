@@ -3,8 +3,8 @@
 
 import { Modal, Button } from "react-materialize";
 import "./ColorThemeModal.css";
-import React, { Component } from "react";
-import M from "materialize-css";
+import React from "react";
+
 import "materialize-css/dist/css/materialize.min.css";
 
 
