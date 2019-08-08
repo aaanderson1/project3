@@ -1,9 +1,15 @@
 
 import React from "react";
-import ColorThemeModal from "./components/ColorThemeModal";
+import Navbar from "./components/Navbar";
+import ColorThemeModal from "./components/ColorThemeModal"
+
+
+
 
 function App() {
-  return <ColorThemeModal />;
+  return (
+      <Navbar />
+  )
 }
 
 export default App;
