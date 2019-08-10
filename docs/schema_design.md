@@ -30,7 +30,8 @@ eventDate - date
 rsvpDeadlineDate - date
 organizerId - string
 rsvpId - string
-giftRegistry - lookup
+gifts - Gift []
+guests - Guest []
 
 Gift
 giftName - string
@@ -41,4 +42,11 @@ quantityDesired - int
 quantityPurchased - int
 giftPurchased - string
 
+Guest
+firstName - string
+lastName - string
+attendanceStatus - string
+gift - lookup
+address - string
+email - string
 
