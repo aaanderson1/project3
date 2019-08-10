@@ -1,14 +1,20 @@
-//sets up the reusable Jumbotron component
-import React from "react";
 import "./Jumbotron.css";
+import React from "react";
+import "materialize-css/dist/css/materialize.min.css";
+import { Section, Button } from "react-materialize";
 
 
-const Jumbotron = () => (
-	<header className = "header">
-		<h1>"The Simpsons" Clicky Game</h1>
-		<h2>Click on any character's image to earn a point; but don't click on the same character more than once! Click all 12 pics, and you win!</h2>
-	</header>
-);
+function Parallaxrender() {
+	return (
 
+	<Section>
 
-export default Jumbotron;
+  <Section className="parallax"><button className="waves-effect waves-teal btn-flat createapartyBTN">Create a Party</button> <button className="waves-effect waves-teal btn-flat guestBTN">I'm a Guest</button></Section>
+  
+ 
+  </Section>
+
+	)
+  }
+
+export default Parallaxrender;
