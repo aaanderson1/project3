@@ -5,6 +5,7 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 // Require all models
 var db = require("../models");
+var uuid = require("uuid/v4");
 
 
 module.exports = {};
@@ -15,11 +16,24 @@ module.exports.getPartyRoute = (app) => {
         console.log(data);
         res.setHeader('Content-Type', 'application/json');
         db.Party.find({
-                saved: data.saved
             })
             .then(function (dbParties) {
                 // If we were able to successfully find Partys, send them back to the client
                 res.json(dbParties);
+            })
+            .catch(function (err) {
+                // If an error occurred, send it to the client
+                res.json(err);
+            });
+    });
+    app.post('/api/party', (req, res) => {
+        console.log(req);
+        const data = req.body;
+        data.organizerId = uuid();
+        data.rsvpId = uuid();
+        db.Party.create(data)
+            .then(function (dbGift) {
+                res.json(dbGift);
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client
@@ -72,17 +86,17 @@ module.exports.getPartyRoute = (app) => {
     });
 };
 
-module.exports.getNotesRoute = (app) => {
-    app.get('/api/notes/:id', (req, res) => {
+module.exports.getGiftRoute = (app) => {
+    app.get('/api/gift/:id', (req, res) => {
         const data = req.query;
         res.setHeader('Content-Type', 'application/json');
         db.Party.find({
                 _id: req.params.id
             })
-            .populate("notes")
+            .populate("gifts")
             .then(function (dbParty) {
                 // If we were able to successfully find Partys, send them back to the client
-                res.json(dbParty[0].notes);
+                res.json(dbParty[0].gifts);
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client
@@ -90,15 +104,15 @@ module.exports.getNotesRoute = (app) => {
             });
     });
 
-    app.post('/api/notes/', (req, res) => {
+    app.post('/api/gift/', (req, res) => {
         const data = req.body;
-        db.Note.create(data)
-            .then(function (dbNote) {
+        db.Gift.create(data)
+            .then(function (dbGift) {
                 db.Party.findOneAndUpdate({
-                    _id: data._headlineId
+                    _id: data._partyId
                 }, {
                     $push: {
-                        notes: dbNote
+                        gifts: dbGift
                     }
                 }).then(() => {
                     res.json("");
@@ -113,14 +127,14 @@ module.exports.getNotesRoute = (app) => {
             });
     });
 
-    app.delete('/api/notes/:id', (req, res) => {
+    app.delete('/api/gift/:id', (req, res) => {
         res.setHeader('Content-Type', 'application/json');
-        db.Note.deleteOne({
+        db.Gift.deleteOne({
                 _id: req.params.id
             })
-            .then(function (dbNote) {
-                // If we were able to successfully find Notes, send them back to the client
-                res.json(dbNote);
+            .then(function (dbGift) {
+                // If we were able to successfully find Gift, send them back to the client
+                res.json(dbGift);
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client
@@ -129,82 +143,60 @@ module.exports.getNotesRoute = (app) => {
     });
 };
 
-module.exports.getClearRoute = (app) => {
-    app.get('/api/clear', (req, res) => {
+
+module.exports.getGuestRoute = (app) => {
+    app.get('/api/guest/:id', (req, res) => {
         const data = req.query;
-        console.log(data);
         res.setHeader('Content-Type', 'application/json');
-        db.Party.deleteMany({})
+        db.Party.find({
+                _id: req.params.id
+            })
+            .populate("guests")
             .then(function (dbParty) {
                 // If we were able to successfully find Partys, send them back to the client
-                res.json("Success");
+                res.json(dbParty[0].guests);
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client
-                res.json(err);
+                res.json([]);
             });
     });
-};
 
-module.exports.getFetchRoute = (app) => {
-    app.get('/api/fetch', (req, res) => {
-        res.setHeader('Content-Type', 'application/json');
-        // First, we grab the body of the html with axios
-        axios.get("https://www.theonion.com/").then(function (response) {
-
-            db.Party.find({})
-                .then(function (dbParty) {
-                    // Then, we load that into cheerio and save it to $ for a shorthand selector
-                    var $ = cheerio.load(response.data);
-
-                    // Now, we grab every h2 within an article tag, and do the following:
-                    $("article h1").each(function (i, element) {
-                        // Save an empty result object
-                        var result = {};
-
-                        // Add the text and href of every link, and save them as properties of the result object
-                        result.title = $(this)
-                            .parent("a")
-                            .text();
-                        result.link = $(this)
-                            .parent("a")
-                            .attr("href");
-                        result.saved = false;
-
-                        // Create a new Party using the `result` object built from scraping
-                        // console.log(`title: ${result.title}, link: ${result.link}`);
-                        // Create a new Party using the `result` object built from scraping
-
-                        for (let article of dbParty) {
-                            if (article.title === result.title) {
-                                return;
-                            }
-                        }
-
-                        db.Party.create(result)
-                            .then(function (dbParty) {
-                                // View the added result in the console
-                                // console.log(dbParty);
-                            })
-                            .catch(function (err) {
-                                // If an error occurred, log it
-                                // console.log(err);
-                            });
-                    });
-                    db.Party.find({})
-                    .then(function (dbParty) {
-                    // Send a message to the client
-                        res.json(dbParty);
-                    })
-                    .catch(function (err) {
-                        // If an error occurred, send it to the client
-                        res.json(err);
-                    });;
-                })
-                .catch(function (err) {
+    app.post('/api/guest/', (req, res) => {
+        const data = req.body;
+        db.Guest.create(data)
+            .then(function (dbGuest) {
+                db.Party.findOneAndUpdate({
+                    _id: data._partyId
+                }, {
+                    $push: {
+                        guests: dbGuest
+                    }
+                }).then(() => {
+                    res.json("");
+                }).catch(function (err) {
                     // If an error occurred, send it to the client
                     res.json(err);
                 });
-        });
+            })
+            .catch(function (err) {
+                // If an error occurred, send it to the client
+                res.json(err);
+            });
+    });
+
+    app.delete('/api/guest/:id', (req, res) => {
+        res.setHeader('Content-Type', 'application/json');
+        db.Guest.deleteOne({
+                _id: req.params.id
+            })
+            .then(function (dbGuest) {
+                // If we were able to successfully find Guest, send them back to the client
+                res.json(dbGuest);
+            })
+            .catch(function (err) {
+                // If an error occurred, send it to the client
+                res.json(err);
+            });
     });
 };

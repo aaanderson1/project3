@@ -14,7 +14,7 @@ var GiftSchema = new Schema({
     },
 
     price: {
-        type: mongoose.Types.Decimal128,
+        type: String,
         required: true,
     },
 

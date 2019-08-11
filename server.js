@@ -9,17 +9,17 @@ const PORT = process.env.PORT || 8080
 const app = express();
 
 app.use(express.urlencoded({extended: true}));
-app.use(express.static('public'))
+app.use(express.json());
+app.use(express.static('public'));
 //connect handlebars to express app
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 htmlRoutes.homeRoute(app);
 htmlRoutes.savedRoute(app);
-apiRoutes.getHeadlinesRoute(app);
-apiRoutes.getNotesRoute(app);
-apiRoutes.getClearRoute(app);
-apiRoutes.getFetchRoute(app);
+apiRoutes.getPartyRoute(app);
+apiRoutes.getGiftRoute(app);
+apiRoutes.getGuestRoute(app);
 app.listen(PORT);
 
 //if deployed use the deployed database, otherwise use the local mongoHeadlines database
