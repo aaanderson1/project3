@@ -1,3 +1,6 @@
+.modalcursor {
+  cursor: grab;
+}
 .container {
   background-color: #C6B677;
   width: 1120px;
@@ -7,12 +10,7 @@ body {
   background-color: #605C4E;
 }
 
-.section {
-  margin-top: 14.5px;
-  background-image: url("https://i.pinimg.com/originals/44/bc/d6/44bcd6944b55727e78e2585e36b416da.jpg");
-  background-size: cover;
-  height: 400px;
-}
+
 
 .navbartext {
   color: white
@@ -44,6 +42,7 @@ p {
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
+  width: 100%;
 }
   .parallax-container .section {
     width: 100%;
@@ -78,20 +77,25 @@ footer.page-footer {
 
 .createpartyBTN {
   float: left;
-
+color: #D5C67A;
 height: 65px;
 width: 500px;
 font-weight: bold;
-background: #D5C67A ;
+background: black;
 border: none;
 box-shadow: 0 7px 0 0 black;
 text-align: center; 
 line-height: 65px; 
 display: flex; 
 justify-content: center; 
-margin-left: 425px;
-margin-top: 130px;
+margin-left: 10px;
+margin-top: 10px;
 margin-right: 0px;
+outline-color: black;
+outline-width: 5px;
+font-family: 'Libre Caslon Display', serif;
+margin-left: 425px;
+margin-top: 145px;
 
 }
 
