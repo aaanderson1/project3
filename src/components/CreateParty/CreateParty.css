@@ -1,0 +1,52 @@
+.parallax { 
+	/* The image used */
+	background-image: url("https://i.pinimg.com/originals/44/bc/d6/44bcd6944b55727e78e2585e36b416da.jpg");
+  
+	/* Set a specific height */
+	height: 400px; 
+  
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  }
+
+  .createapartyBTN {
+	  float: left;
+	
+	height: 65px;
+	width: 500px;
+	font-weight: bold;
+	background: #D5C67A ;
+	border: none;
+	box-shadow: 0 7px 0 0 black;
+	text-align: center; 
+	line-height: 65px; 
+	display: flex; 
+	justify-content: center; 
+	margin-left: 100px;
+	margin-top: 130px;
+	margin-right: 0px;
+	
+  }
+
+  .guestBTN {
+	position: relative;
+	float: right;
+	height: 65px;
+	width: 500px;
+	font-weight: bold;
+	background: #D5C67A ;
+	border: none;
+	box-shadow: 0 7px 0 0 black;
+	text-align: center; 
+	line-height: 65px; 
+	display: flex; 
+	justify-content: center; 
+	margin-top: 130px;
+	margin-right: 100px;
+	
+
+	
+  }
