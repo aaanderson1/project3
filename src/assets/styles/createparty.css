@@ -197,3 +197,7 @@ font-family: 'Libre Caslon Display', serif;
 	left: 0;
 	right: 0;
   }
+
+  .modal-close {
+    float: right;
+  }

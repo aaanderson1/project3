@@ -96,14 +96,36 @@
   <div id="PickImageModal" class="modal">
     <div class="modal-content">
       <h4>Pick a party image</h4>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
       <div class="col s4 m4 l4">
-      <img src="assets/images/modalbaby.png" class="modalcursor generalbabypic"></img>
-    
-   
-      <img src="assets/images/modalbabyblue.png" class="modalcursor" id="boybaby"></img>
-
+      <img src="assets/images/modal-baby.png" class="modalcursor generalbabypic" id="generalbabypic" value="general baby pic" onclick="saveImage()"></img>   
+      <img src="assets/images/modal-babyblue.png" class="modalcursor boybaby" id="boybaby"></img>
+      <img src="assets/images/modal-babypink.png" class="modalcursor girlbaby" id="girlbaby"></img>
+      <img src="assets/images/modal-bluecake.png" class="modalcursor bluecake" id="bluecake"></img>
+      <img src="assets/images/modal-blueglitter.png" class="modalcursor blueglitter" id="blueglitter"></img>
+      <img src="assets/images/modal-champagne.png" class="modalcursor champagne" id="champagne"></img>
+      <img src="assets/images/modal-coloredlights.png" class="modalcursor coloredlights" id="coloredlights"></img>
+      <img src="assets/images/modal-cremewedding.png" class="modalcursor cremewedding" id="cremewedding"></img>
+      <img src="assets/images/modal-elegantwedding.png" class="modalcursor elegantwedding" id="elegantwedding"></img>
+      <img src="assets/images/modal-firework.png" class="modalcursor firework" id="firework"></img>
+      <img src="assets/images/modal-goldglitter.png" class="modalcursor goldglitter" id="goldglitter"></img>
+      <img src="assets/images/modal-lightbulb.png" class="modalcursor lightbulb" id="lightbulb"></img>
+      <img src="assets/images/modal-multicolor.png" class="modalcursor multicolor" id="multicolor"></img>
+      <img src="assets/images/modal-pinkcake.png" class="modalcursor pinkcake" id="pinkcake"></img>
+      <img src="assets/images/modal-pinkrose.png" class="modalcursor pinkrose" id="pinkrose"></img>
+      <img src="assets/images/modal-pinkroses.png" class="modalcursor pinkroses" id="pinkroses"></img>
+      <img src="assets/images/modal-pinkroseswood.png" class="modalcursor pinkroseswood" id="pinkroseswood"></img>
+      <img src="assets/images/modal-purplewedding.png" class="modalcursor purplewedding" id="purplewedding"></img>
+      <img src="assets/images/modal-rainbowroses.png" class="modalcursor rainbowroses" id="rainbowroses"></img>
+      <img src="assets/images/modal-rainbowwood.png" class="modalcursor rainbowwood" id="rainbowwood"></img>
+      <img src="assets/images/modal-redrose.png" class="modalcursor redrose" id="redrose"></img>
+      <img src="assets/images/modal-silver.png" class="modalcursor silver" id="silver"></img>
+      <img src="assets/images/modal-silverwedding.png" class="modalcursor silverwedding" id="silverwedding"></img>
+      <img src="assets/images/modal-stringlights.png" class="modalcursor stringlights" id="stringlights"></img>
+      <img src="assets/images/modal-weddingrings.png" class="modalcursor weddingrings" id="weddingrings"></img>
+      <img src="assets/images/modal-beachwedding.png" class="modalcursor beachwedding" id="beachwedding"></img>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
     </div>
   </div>
           
@@ -111,5 +133,14 @@
   </html>
 
   <script>
+    function saveImage() {
+      var ID = ("src", "assets/images/modal-baby.png");
+      localStorage.setItem("pickedImage", ID);
+      
+    }
 
+    function getImage () {
+      var x = localStorage.getItem("src", "assets/images/modal-baby.png");
+      document.getElementById("jumbotron").innerHTML = x;
+    }
   </script>
