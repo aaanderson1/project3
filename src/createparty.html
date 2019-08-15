@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>It's My Party | Create a Party</title>
+    <title>It"s My Party | Create a Party</title>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -21,7 +21,7 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <img src="assets/images/partylogo.png" class="navbarlogo" height="100px" width="100px">
             <li><a href="#" class="navbartext">Create a Party</a></li>
-            <li><a href="#" class="navbartext">I'm a Guest</a></li>
+            <li><a href="#" class="navbartext">I"m a Guest</a></li>
           </ul>
         </div>
       </nav>
@@ -31,7 +31,7 @@
     <div class="parallax-container">
             <div class="parallax">
                     
-                <img class="jumbotronpic" src="assets/images/jumbotronbackground.jpg">
+                <img class="jumbotronpic" src="">
                 
             </div>
             <div class="row">
@@ -98,7 +98,7 @@
       <h4>Pick a party image</h4>
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
       <div class="col s4 m4 l4">
-      <img src="assets/images/modal-baby.png" class="modalcursor generalbabypic" id="generalbabypic" value="general baby pic" onclick="saveImage()"></img>   
+      <img src="assets/images/modal-baby.png" class="modalcursor generalbabypic" id="generalbabypic" value="general baby pic"></img>   
       <img src="assets/images/modal-babyblue.png" class="modalcursor boybaby" id="boybaby"></img>
       <img src="assets/images/modal-babypink.png" class="modalcursor girlbaby" id="girlbaby"></img>
       <img src="assets/images/modal-bluecake.png" class="modalcursor bluecake" id="bluecake"></img>
@@ -133,14 +133,6 @@
   </html>
 
   <script>
-    function saveImage() {
-      var ID = ("src", "assets/images/modal-baby.png");
-      localStorage.setItem("pickedImage", ID);
-      
-    }
 
-    function getImage () {
-      var x = localStorage.getItem("src", "assets/images/modal-baby.png");
-      document.getElementById("jumbotron").innerHTML = x;
-    }
+
   </script>

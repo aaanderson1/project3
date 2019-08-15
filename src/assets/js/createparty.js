@@ -83,10 +83,25 @@ $(document).ready(function () {
     $(".rainbowroses").click(function(){
         $(".jumbotronpic").attr("src", "assets/images/rainbowroses.jpg")
       });
-    
-    
-     
-  
+
+     $(".generalbabypic").click(function (){ 
+            $.ajax({
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    url: "api/saved-image",
+                    type: "GET",
+                    data: $.param({
+                        userId: this.userId
+                    })
+                })
+                .then(returnData => {
+                    if (returnData.error) {
+                        reject(returnData);
+                        return;
+                    }
+                    resolve(returnData);
+                });
+        });
   })
 
-  
