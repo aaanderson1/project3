@@ -6,7 +6,8 @@ $(document).ready(function () {
         $(".modal").modal();
     });
     $(".generalbabypic").click(function(){
-        $(".jumbotronpic").attr("src", "assets/images/baby-shower-neutral.jpg")
+        $(".jumbotronpic").empty;
+       
       });
     $(".boybaby").click(function(){
         $(".jumbotronpic").attr("src", "assets/images/babyblue.jpg")
@@ -83,25 +84,5 @@ $(document).ready(function () {
     $(".rainbowroses").click(function(){
         $(".jumbotronpic").attr("src", "assets/images/rainbowroses.jpg")
       });
-
-     $(".generalbabypic").click(function (){ 
-            $.ajax({
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    url: "api/saved-image",
-                    type: "GET",
-                    data: $.param({
-                        userId: this.userId
-                    })
-                })
-                .then(returnData => {
-                    if (returnData.error) {
-                        reject(returnData);
-                        return;
-                    }
-                    resolve(returnData);
-                });
-        });
   })
 
