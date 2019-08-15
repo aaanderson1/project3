@@ -7,7 +7,7 @@ import { Section, Button } from "react-materialize";
 function Parallaxrender() {
 	return (
 
-	<Section>
+  <Section>
 
   <Section className="parallax"><button className="waves-effect waves-teal btn-flat loginBTN">Log In</button></Section>
   
