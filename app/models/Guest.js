@@ -28,6 +28,11 @@ var GuestSchema = new Schema({
         required: true,
     },
 
+    party: {
+        type: Schema.Types.ObjectId,
+        ref: "Party"
+    },
+
 });
 
 var Guest = mongoose.model("Guest", GuestSchema);

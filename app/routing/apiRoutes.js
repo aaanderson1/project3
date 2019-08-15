@@ -15,8 +15,7 @@ module.exports.getPartyRoute = (app) => {
         const data = req.query;
         console.log(data);
         res.setHeader('Content-Type', 'application/json');
-        db.Party.find({
-            })
+        db.Party.find({})
             .then(function (dbParties) {
                 // If we were able to successfully find Partys, send them back to the client
                 res.json(dbParties);
@@ -72,12 +71,31 @@ module.exports.getPartyRoute = (app) => {
     });
     app.delete('/api/party/:id', (req, res) => {
         res.setHeader('Content-Type', 'application/json');
-        db.Party.remove({
+        db.Party.deleteOne({
                 _id: req.params.id
             })
-            .then(function (dbParty) {
-                // If we were able to successfully find Partys, send them back to the client
-                res.json(dbParty);
+            .then(function () {
+                db.Gift.deleteMany({
+                        party: db.Types.ObjectId(req.params.id)
+                    })
+                    .then(function () {
+
+                        db.Guest.deleteMany({
+                                party: db.Types.ObjectId(req.params.id)
+                            })
+                            .then(function () {
+                                // If we were able to successfully find Guest, send them back to the client
+                                res.json("{}");
+                            })
+                            .catch(function (err) {
+                                // If an error occurred, send it to the client
+                                res.json(err);
+                            });
+                    })
+                    .catch(function (err) {
+                        // If an error occurred, send it to the client
+                        res.json(err);
+                    });
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client
@@ -108,18 +126,7 @@ module.exports.getGiftRoute = (app) => {
         const data = req.body;
         db.Gift.create(data)
             .then(function (dbGift) {
-                db.Party.findOneAndUpdate({
-                    _id: data._partyId
-                }, {
-                    $push: {
-                        gifts: dbGift
-                    }
-                }).then(() => {
-                    res.json("");
-                }).catch(function (err) {
-                    // If an error occurred, send it to the client
-                    res.json(err);
-                });
+                res.json(dbGift);
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client
@@ -166,18 +173,7 @@ module.exports.getGuestRoute = (app) => {
         const data = req.body;
         db.Guest.create(data)
             .then(function (dbGuest) {
-                db.Party.findOneAndUpdate({
-                    _id: data._partyId
-                }, {
-                    $push: {
-                        guests: dbGuest
-                    }
-                }).then(() => {
-                    res.json("");
-                }).catch(function (err) {
-                    // If an error occurred, send it to the client
-                    res.json(err);
-                });
+                res.json(dbGuest);
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client

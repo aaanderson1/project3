@@ -45,15 +45,10 @@ var PartySchema = new Schema({
         required: true,
     },
 
-    gifts: [{
-        type: Schema.Types.ObjectId,
-        ref: "Gift"
-    }],
-
-    guests: [{
-        type: Schema.Types.ObjectId,
-        ref: "Guest"
-    }],
+    theme: {
+        type: String,
+        required: true,
+    }
 });
 
 var Party = mongoose.model("Party", PartySchema);

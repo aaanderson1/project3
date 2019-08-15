@@ -10,13 +10,12 @@ const app = express();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('build'));
 //connect handlebars to express app
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 htmlRoutes.homeRoute(app);
-htmlRoutes.savedRoute(app);
 apiRoutes.getPartyRoute(app);
 apiRoutes.getGiftRoute(app);
 apiRoutes.getGuestRoute(app);

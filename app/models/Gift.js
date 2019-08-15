@@ -37,6 +37,11 @@ var GiftSchema = new Schema({
         type: String,
         required: true,
     },
+
+    party: {
+        type: Schema.Types.ObjectId,
+        ref: "Party"
+    },
 });
 
 var Gift = mongoose.model("Gift", GiftSchema);
