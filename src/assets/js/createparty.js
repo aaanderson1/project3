@@ -84,5 +84,9 @@ $(document).ready(function () {
         $(".jumbotronpic").attr("src", "assets/images/rainbowroses.jpg")
       });
     
+    
+     
+  
+  })
 
-})
+  
