@@ -21,7 +21,8 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <img src="assets/images/partylogo.png" class="navbarlogo" height="100px" width="100px">
             <li><a href="#" class="navbartext">Create a Party</a></li>
-            <li><a href="#" class="navbartext">I"m a Guest</a></li>
+            <li><a href="#" class="navbartext">I'm a Guest</a></li>
+            <li><a href="#" class="navbartext">Log Out</a></li>
           </ul>
         </div>
       </nav>
@@ -49,7 +50,7 @@
             <a class="button hvr-underline-from-center pickcolorBTN">PICK A COLOR THEME <i class="fas fa-paint-roller"></i></a>
         </div>
         <div class="col s3 m3 l3">
-                <a class="button hvr-underline-from-center sharethispageBTN">SHARE THIS PAGE <i class="fas fa-share-alt"></i></a>
+                <a class="button hvr-underline-from-center sharethispageBTN modal-trigger" href="#ShareThisPageModal">SHARE THIS PAGE <i class="fas fa-share-alt"></i></a>
                 
             </div>
             <div class="row">
@@ -67,7 +68,7 @@
                     <p id="maybe">Maybe</p>
                   </div>
                   <div class="card-action">
-                    <a href="#"></a>
+                    <a href="#">Manage Your RSVP's</a>
                   </div>
                 </div>
               </div>
@@ -92,38 +93,61 @@
     </div>
   </div>
 
+    <!-- ShareThisPageModal Structure -->
+    <div id="ShareThisPageModal" class="modal">
+      <div class="modal-content" id="share-buttons">
+        <h4>Share This Page!</h4>
+        <h5>Easily invite your friends & family to view your gift registry and party details. Or PRINT your gift registry to share.</h5>
+        <a href="mailto:?Subject=View My Party and Registry&amp;Body=Click Here to View My Party Details and Registry https://simplesharebuttons.com">
+          <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
+      </a>
+      <a href="http://www.facebook.com/sharer.php?u=http://www.heroku.com" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+    </a>
+    <a href="https://twitter.com/share?url=http://www.heroku.com&amp;text=View My Party Details and Gift Registry!" target="_blank">
+      <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+  </a>
+    <a href="javascript:;" onclick="window.print()">
+      <img src="https://simplesharebuttons.com/images/somacro/print.png" alt="Print" />
+  </a>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+
   <!-- PickImageModal Structure -->
   <div id="PickImageModal" class="modal">
     <div class="modal-content">
       <h4>Pick a party image</h4>
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
       <div class="col s4 m4 l4">
-      <img src="assets/images/modal-baby.png" class="modalcursor generalbabypic" id="generalbabypic" value="general baby pic"></img>   
-      <img src="assets/images/modal-babyblue.png" class="modalcursor boybaby" id="boybaby"></img>
-      <img src="assets/images/modal-babypink.png" class="modalcursor girlbaby" id="girlbaby"></img>
-      <img src="assets/images/modal-bluecake.png" class="modalcursor bluecake" id="bluecake"></img>
-      <img src="assets/images/modal-blueglitter.png" class="modalcursor blueglitter" id="blueglitter"></img>
-      <img src="assets/images/modal-champagne.png" class="modalcursor champagne" id="champagne"></img>
-      <img src="assets/images/modal-coloredlights.png" class="modalcursor coloredlights" id="coloredlights"></img>
-      <img src="assets/images/modal-cremewedding.png" class="modalcursor cremewedding" id="cremewedding"></img>
-      <img src="assets/images/modal-elegantwedding.png" class="modalcursor elegantwedding" id="elegantwedding"></img>
-      <img src="assets/images/modal-firework.png" class="modalcursor firework" id="firework"></img>
-      <img src="assets/images/modal-goldglitter.png" class="modalcursor goldglitter" id="goldglitter"></img>
-      <img src="assets/images/modal-lightbulb.png" class="modalcursor lightbulb" id="lightbulb"></img>
-      <img src="assets/images/modal-multicolor.png" class="modalcursor multicolor" id="multicolor"></img>
-      <img src="assets/images/modal-pinkcake.png" class="modalcursor pinkcake" id="pinkcake"></img>
-      <img src="assets/images/modal-pinkrose.png" class="modalcursor pinkrose" id="pinkrose"></img>
-      <img src="assets/images/modal-pinkroses.png" class="modalcursor pinkroses" id="pinkroses"></img>
-      <img src="assets/images/modal-pinkroseswood.png" class="modalcursor pinkroseswood" id="pinkroseswood"></img>
-      <img src="assets/images/modal-purplewedding.png" class="modalcursor purplewedding" id="purplewedding"></img>
-      <img src="assets/images/modal-rainbowroses.png" class="modalcursor rainbowroses" id="rainbowroses"></img>
-      <img src="assets/images/modal-rainbowwood.png" class="modalcursor rainbowwood" id="rainbowwood"></img>
-      <img src="assets/images/modal-redrose.png" class="modalcursor redrose" id="redrose"></img>
-      <img src="assets/images/modal-silver.png" class="modalcursor silver" id="silver"></img>
-      <img src="assets/images/modal-silverwedding.png" class="modalcursor silverwedding" id="silverwedding"></img>
-      <img src="assets/images/modal-stringlights.png" class="modalcursor stringlights" id="stringlights"></img>
-      <img src="assets/images/modal-weddingrings.png" class="modalcursor weddingrings" id="weddingrings"></img>
-      <img src="assets/images/modal-beachwedding.png" class="modalcursor beachwedding" id="beachwedding"></img>
+      <img src="assets/images/modal-baby.png" class="modalcursor generalbabypic" id="generalbabypic" value="general baby pic"><h5 class="imageName">General Baby Shower</h5></img>   
+      <img src="assets/images/modal-babyblue.png" class="modalcursor boybaby" id="boybaby"><h5 class="imageName">Baby Boy Shower</h5></img>
+      <img src="assets/images/modal-babypink.png" class="modalcursor girlbaby" id="girlbaby"><h5 class="imageName">Baby Girl Shower</h5></img>
+      <img src="assets/images/modal-bluecake.png" class="modalcursor bluecake" id="bluecake"><h5 class="imageName">Blue Cake</h5> </img>
+      <img src="assets/images/modal-blueglitter.png" class="modalcursor blueglitter" id="blueglitter"><h5 class="imageName">Blue Glitter</h5></img>
+      <img src="assets/images/modal-champagne.png" class="modalcursor champagne" id="champagne"><h5 class="imageName">Champagne</h5></img>
+      <img src="assets/images/modal-coloredlights.png" class="modalcursor coloredlights" id="coloredlights"><h5 class="imageName">Colored Lights</h5></img>
+      <img src="assets/images/modal-cremewedding.png" class="modalcursor cremewedding" id="cremewedding"><h5 class="imageName">Cream/Neutral Wedding</h5></img>
+      <img src="assets/images/modal-elegantwedding.png" class="modalcursor elegantwedding" id="elegantwedding"><h5 class="imageName">Elegant Wedding</h5></img>
+      <img src="assets/images/modal-firework.png" class="modalcursor firework" id="firework"><h5 class="imageName">Firework</h5></img>
+      <img src="assets/images/modal-goldglitter.png" class="modalcursor goldglitter" id="goldglitter"><h5 class="imageName">Gold Glitter</h5></img>
+      <img src="assets/images/modal-lightbulb.png" class="modalcursor lightbulb" id="lightbulb"><h5 class="imageName">Light Bulb</h5></img>
+      <img src="assets/images/modal-multicolor.png" class="modalcursor multicolor" id="multicolor"><h5 class="imageName">Multi-Colored</h5></img>
+      <img src="assets/images/modal-pinkcake.png" class="modalcursor pinkcake" id="pinkcake"><h5 class="imageName">Pink Cake</h5></img>
+      <img src="assets/images/modal-pinkrose.png" class="modalcursor pinkrose" id="pinkrose"><h5 class="imageName">Pink Rose</h5></img>
+      <img src="assets/images/modal-pinkroses.png" class="modalcursor pinkroses" id="pinkroses"><h5 class="imageName">Pink Roses</h5></img>
+      <img src="assets/images/modal-pinkroseswood.png" class="modalcursor pinkroseswood" id="pinkroseswood"><h5 class="imageName">Pink Roses on White Wood</h5></img>
+      <img src="assets/images/modal-purplewedding.png" class="modalcursor purplewedding" id="purplewedding"><h5 class="imageName">Purple Wedding</h5></img>
+      <img src="assets/images/modal-rainbowroses.png" class="modalcursor rainbowroses" id="rainbowroses"><h5 class="imageName">Rainbow Roses</h5></img>
+      <img src="assets/images/modal-rainbowwood.png" class="modalcursor rainbowwood" id="rainbowwood"><h5 class="imageName">Rainbow Wood</h5></img>
+      <img src="assets/images/modal-redrose.png" class="modalcursor redrose" id="redrose"><h5 class="imageName">Red Rose</h5></img>
+      <img src="assets/images/modal-silver.png" class="modalcursor silver" id="silver"><h5 class="imageName">Sleek Silver</h5></img>
+      <img src="assets/images/modal-silverwedding.png" class="modalcursor silverwedding" id="silverwedding"><h5 class="imageName">Silver Wedding</h5></img>
+      <img src="assets/images/modal-stringlights.png" class="modalcursor stringlights" id="stringlights"><h5 class="imageName">String Lights</h5></img>
+      <img src="assets/images/modal-weddingrings.png" class="modalcursor weddingrings" id="weddingrings"><h5 class="imageName">Wedding Rings</h5></img>
+      <img src="assets/images/modal-beachwedding.png" class="modalcursor beachwedding" id="beachwedding"><h5 class="imageName">Beach Wedding</h5></img>
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
     </div>

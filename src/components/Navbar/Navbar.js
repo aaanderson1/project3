@@ -16,6 +16,9 @@ Create a Party
 <NavItem href="components.html">
 I'm a Guest
 </NavItem>
+<NavItem href="components.html">
+Log Out
+</NavItem>
 </Navbar>
   );
 }
