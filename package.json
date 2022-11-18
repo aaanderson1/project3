@@ -19,7 +19,7 @@
     "react-dom": "^16.9.0",
     "react-materialize": "^3.3.4",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-scroll-parallax": "^2.1.2",
     "react-skrollr": "^1.0.4",
     "uuid": "^3.3.2"
